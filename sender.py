@@ -3,16 +3,14 @@
 import os
 from socket import *
 import datetime
-
+import time
 host = "127.0.0.1" # set to IP address of target computer
 port = 13000
 addr = (host, port)
 UDPSock = socket(AF_INET, SOCK_DGRAM)
 while True:
     now = datetime.datetime.now()
-    ##data = raw_input("Enter message to send or type 'exit': ")
     UDPSock.sendto(str(now), addr)
-    #if data == "exit":
-     #   break
+    time.sleep(1) 
 UDPSock.close()
 os._exit(0)
